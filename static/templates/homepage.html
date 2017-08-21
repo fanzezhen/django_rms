@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content01 %}
+	<center><h3 style = "margin: 0 40% 5% 0;">第一食堂</h3></center>
+	<table style = "margin: 0 0 0 5%;" width = 70%; >
+		{% for post in firstPosts|slice:":" reversed %}
+		{% if forloop.counter <= 5 %}
+		<tr>
+			<td align="lift" >{{ post.name }}</td>
+			<td align="lift">{{ post.price }}</td>
+		</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+{% endblock %}
+{% block content02 %}
+	<center><h3 style = "margin: 0 40% 5% 0;">第二食堂</h3></center>
+	<table style = "margin: 0 0 0 5%;" width = 70%; >
+		{% for post in secondPosts|slice:":" reversed %}
+		{% if forloop.counter <= 5 %}
+		<tr>
+			<td align="lift" >{{ post.name }}</td>
+			<td align="lift">{{ post.price }}</td>
+		</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+{% endblock %}
+{% block content03 %}
+	<h3 style = "margin: 0 20% 5% 0;">欢迎加入美食管理系统！</h3>
+	<form method = 'POST' action = ''>
+		{% if mlogin %}
+		<p style = "color: #B97272; ">{{ mlogin }}</p>
+		{% endif %}
+		{% csrf_token %}
+		{{ form.as_p }}
+		<p style = "text-align: center; "><input type = 'submit' value = "注册"></p>
+	</form>
+{% endblock %}

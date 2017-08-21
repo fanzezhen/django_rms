@@ -1,0 +1,24 @@
+{% extends 'base_canteen.html' %}
+{% block title %}第二餐厅{% endblock %}
+{% block header %}第二餐厅{% endblock %}
+{% block welcome %}欢迎来到第二餐厅{% endblock %}
+
+{% block menu %}
+	<table style = "margin: 0 0 0 11.2%; font-size: 16px;" width = 70%; >
+		{% for post in secondPosts|slice:":" reversed %}
+		<tr>
+			<td align="center"><p style = "margin: 20px 0 0 0; ">{{ post.name }}</p></td>
+			<td align="center"><p style = "margin: 20px 0 0 0; ">{{ post.price }}</p></td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
+
+{% block character %}
+	<dt class = "awardDt">风味儿茄子
+		<dd class = "awardDd">由干小茄子、青椒洗净切条、大蒜洗净切片、生姜洗净切片等原料独家秘制而成！</dd>
+	</dt>
+	<dt class = "awardDt">糖醋里脊
+		<dd class = "awardDd">以猪里脊肉为主材， 配以面粉，淀粉， 醋等作料，酸甜可口， 让人胃口大开！ </dd>
+	</dt>
+{% endblock %}

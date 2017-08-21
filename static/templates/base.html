@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+    <title>美食管理系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="/static/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Welcome to foodbox!</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" style = " margin: 15px 0 auto; float:right; display:table-cell; vertical-align:bottom; ">
+          <ul>
+			      <a href="/profile/" target="_blank">简介</a> 
+			      <a id="/topnav_current/" href="/untitled/" target="_blank">留言板</a> 
+			      <a href="/myprofile/" target="_blank">负责人</a> 
+			      <a href="/feedback/" target="_blank">反馈</a>
+			    </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+    	<div style = "float: right; margin: 0 5% 0 0;">
+	    	{% if errorSearches %}
+				<ul style = "padding-left: 6%; align: left; margin: 0; color: #C138C5;">
+					{% for error in errorSearches %}
+						<li style = "color: #C138C5;">{{ error }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+				<form action = "/" method = "get">
+					<input type = "text" name = "dish" placeholder="客观来点儿啥？">
+					<input type="submit" value = "Search">
+				</form>
+			</div>
+      <div class="container">
+        <h1 style = "margin-top: 0; ">欢迎来到餐厅管理系统!</h1>
+        <p style = "padding: 0px 0; margin: 15px auto 0px 0;">在这里， 你可以了解到鲁大各个餐厅的美食菜单，也可以吐槽自己的看法， 欢迎同学们加入！</p>
+        <p style = "padding: 0px 0; ">Here, you can learn about the restaurant's gourmet restaurant menu, you can also Tucao their views, welcomed the students to join!</p>
+        <p><a class="btn btn-primary btn-lg" href="/profile/" role="button">了解更多 »</a></p>
+      </div>
+    </div>
+	<div class = "content">
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          {% block content01 %}
+          {% endblock %}
+          <p style = "margin: 10px 20%;"><a class="btn btn-default" href="/firstcanteen/" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+          {% block content02 %}
+          {% endblock %}
+          <p style = "margin: 10px 20%;"><a class="btn btn-default" href="/secondcanteen/" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+          {% block content03 %}
+          {% endblock %}
+       	</div>
+      </div>
+		</div>
+		<hr>
+	</div>
+      
+
+      <footer>
+        <p style = "padding: 0px 0; margin: 0;">© 阿朕&鸡仔 2016</p>
+      </footer>
+     <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>
